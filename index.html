@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="Black_and_Yellow_Creative_Business_Security_Protection_Logo-removebg-preview.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@600&family=Inter&display=swap" rel="stylesheet">
@@ -70,7 +71,7 @@
             <button id="copy-2">Copiar Senha</button>
         </div>
         <div class="copyFooter">
-            <span class="copy">&copy; 2024 GroupLock | Todos os direitos reservados</span>
+            <span class="copy">&copy; <span id="fullYear"></span> GroupLock | Todos os direitos reservados</span>
         </div>
     </main>
     <script>
@@ -79,6 +80,9 @@
         const numberCheckEl = document.querySelector("#number-check")
         const symbolCheckEl = document.querySelector("#symbol-check")
         const securityIndicatorBarEl = document.querySelector("#security-indicator-bar")
+
+        const today = new Date()
+        document.querySelector("#fullYear").innerText = today.getFullYear()
 
 
         let passwordLength = 16
