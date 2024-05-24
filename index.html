@@ -4,82 +4,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="icon-logo4.png" type="image/x-icon">
+    <link rel="icon" href="/assets/icon-logo4.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@600&family=Inter&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./fontawesome-free-6.5.2-web/css/all.min.css">
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
     <title>GroupLock</title>
 </head>
 
 <body>
-    <main>
-        <section class="hero">
-            <h1 class="title">Gerador de Senha</h1>
-            <p class="subtitle">
-                Utilize o nosso gerador online para
-                criar uma senha forte e segura.
-            </p>
-        </section>
-        <section class="box">
-            <div class="password">
-                <div class="text">
-                    <input type="text" name="password" id="password" />
+    <div id="body" class="body">
+        <header>
+            <div class="darkBnt-container">
+                <button id="darkMode" class="bnt-off"><i id="icon-moon-sun" class="fa-solid fa-sun"></i></button>
+            </div>
+        </header>
+        
+        <main>
+            <section class="hero">
+                <h1 class="title">Gerador de Senha</h1>
+                <p class="subtitle">
+                    Utilize o nosso gerador online para
+                    criar uma senha forte e segura.
+                </p>
+            </section>
+            <section class="box">
+                <div class="password">
+                    <div class="text">
+                        <input type="text" name="password" id="password" />
+                    </div>
+                    <div class="actions">
+                        <button id="copy-1">
+                            <img src="copy.svg" width="42">
+                        </button>
+                        <button id="renew">
+                            <img src="renew.svg" width="42">
+                        </button>
+                    </div>
                 </div>
+                <div class="security-indicator">
+                    <div id="security-indicator-bar" class="bar safe"></div>
+                </div>
+            </section>
+            <section class="box customize">
+                <h3 class="title">Personalizar</h3>
                 <div class="actions">
-                    <button id="copy-1">
-                        <img src="copy.svg" width="42">
-                    </button>
-                    <button id="renew">
-                        <img src="renew.svg" width="42">
-                    </button>
+                    <div class="password-length">
+                        <p>Tamanho: <span id="password-length-text">16</span></p>
+                        <input type="range" class="slider" name="password-length" id="password-length" value="16" min="8" max="64" />
+                    </div>
+                    <div class="config">
+                        <label class="checkbox-container">
+                            <span class="text">Maiúsculas</span>
+                            <input type="checkbox" id="uppercase-check" checked>
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="checkbox-container">
+                            <span class="text">Números</span>
+                            <input type="checkbox" id="number-check" checked>
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="checkbox-container">
+                            <span class="text">Símbolos</span>
+                            <input type="checkbox" id="symbol-check" checked>
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
                 </div>
+            </section>
+    
+            <div class="submit">
+                <button id="copy-2">Copiar Senha</button>
             </div>
-            <div class="security-indicator">
-                <div id="security-indicator-bar" class="bar safe"></div>
+            <div class="copyFooter">
+                <span class="copy">&copy; <span id="fullYear"></span> GroupLock | Todos os direitos reservados</span>
             </div>
-        </section>
-        <section class="box customize">
-            <h3 class="title">Personalizar</h3>
-            <div class="actions">
-                <div class="password-length">
-                    <p>Tamanho: <span id="password-length-text">16</span></p>
-                    <input type="range" class="slider" name="password-length" id="password-length" value="16" min="8" max="64" />
-                </div>
-                <div class="config">
-                    <label class="checkbox-container">
-                        <span class="text">Maiúsculas</span>
-                        <input type="checkbox" id="uppercase-check" checked>
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="checkbox-container">
-                        <span class="text">Números</span>
-                        <input type="checkbox" id="number-check" checked>
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="checkbox-container">
-                        <span class="text">Símbolos</span>
-                        <input type="checkbox" id="symbol-check" checked>
-                        <span class="checkmark"></span>
-                    </label>
-                </div>
-            </div>
-        </section>
-
-        <div class="submit">
-            <button id="copy-2">Copiar Senha</button>
-        </div>
-        <div class="copyFooter">
-            <span class="copy">&copy; <span id="fullYear"></span> GroupLock | Todos os direitos reservados</span>
-        </div>
-    </main>
+        </main>
+    </div>
     <script>
         const passwordEl = document.querySelector("#password")
         const upperCaseCheckEl = document.querySelector("#uppercase-check")
         const numberCheckEl = document.querySelector("#number-check")
         const symbolCheckEl = document.querySelector("#symbol-check")
         const securityIndicatorBarEl = document.querySelector("#security-indicator-bar")
+        const bodyEl = document.querySelector("#body")
+        const buttonDarkModeEl = document.querySelector("#darkMode")
+        const iconDarkModeEl = document.querySelector("#icon-moon-sun")
+
+
+        buttonDarkModeEl.addEventListener("click", function () {
+            bodyEl.classList.toggle("darkOn")
+
+            iconDarkModeEl.classList.toggle("fa-moon")
+
+        })
 
         const today = new Date()
         document.querySelector("#fullYear").innerText = today.getFullYear()
