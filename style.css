@@ -5,6 +5,8 @@
     color: #252525;
     padding: 2rem;
     transition: all 0.3s;
+    position: relative;
+    
 }
 
 header {
@@ -284,7 +286,6 @@ main {
 .copyFooter .copy {
     font-family: Raleway, sans-serif;
     font-size: 18px;
-    margin-top: 25px;
     opacity: 0.5;
 }
 

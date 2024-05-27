@@ -14,8 +14,8 @@
     <title>GroupLock</title>
 </head>
 
-<body>
-    <div id="body" class="body">
+<body id="body" class="body">
+    <div>
         <header>
             <div class="darkBnt-container">
                 <button id="darkMode" class="bnt-off"><i id="icon-moon-sun" class="fa-solid fa-sun"></i></button>
@@ -78,10 +78,11 @@
             <div class="submit">
                 <button id="copy-2">Copiar Senha</button>
             </div>
-            <div class="copyFooter">
-                <span class="copy">&copy; <span id="fullYear"></span> GroupLock | Todos os direitos reservados</span>
-            </div>
         </main>
+
+        <footer class="copyFooter">
+            <span class="copy">&copy; <span id="fullYear"></span> GroupLock | Todos os direitos reservados</span>
+        </footer>
     </div>
     <script>
         const passwordEl = document.querySelector("#password")
